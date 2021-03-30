@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+    <div class="row">
+      <div class="col-lg-10 offset-lg-1">
+
+
+  <form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+      <div class="offset-lg-2">
+          <legend>Добавьте скриншоты, документы</legend>
+      </div>
+      <p></p>
+      <div class="offset-lg-1">
+
+          {{ form_attach.upload }}
+
+      </div>
+  </form>
+          </div>
+
+      </div>
+
+{% endblock %}

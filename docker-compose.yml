@@ -1,0 +1,28 @@
+version: "3"
+services:
+  front_calldev:
+    build:
+     context: .
+    ports:
+       - "8001:8001"
+    container_name: scz_calldev_service
+    restart: unless-stopped   
+    volumes:
+       - ./devchalenge1
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"
+  
+  calldev_db: 
+    image: postgres:12.0-alpine
+    volumes:
+       - postgres_data:/var/lib/postgresql/data/
+    environment: 
+       - POSTGRES_USER=hello_django
+       - POSTGRES_PASSWORD=hello_django
+       - POSTGRES_DB=hello_django_dev          
+    container_name: scz_pg_calldev_db
+
+volumes:
+  postgres_data:
+    
+    
